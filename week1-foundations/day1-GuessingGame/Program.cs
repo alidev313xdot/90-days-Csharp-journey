@@ -1,43 +1,77 @@
-Console.WriteLine("== Guessing Game ==");
-Console.WriteLine("In this game, you have to guess a number between 1 and 100. You have 6 chances to guess the correct number. Good luck!");    
-Console.WriteLine("Let's see in how many guesses you can find the correct number!");
-
-int numberToGuess = new Random().Next(1, 101);
-
-Console.Write("Enter your guess: ");
-int userGuess = Convert.ToInt32(Console.ReadLine());
-
-int totalGuess = 6; 
-int currentGuess = 0;  
-
-while (currentGuess <= totalGuess && userGuess != numberToGuess)
+int GetValidatedIntegerInput(string prompt, int min, int max)
 {
-    currentGuess++;
-    if (userGuess < numberToGuess)
+    // The function ensures that the input is a valid integer and falls within the specified minimum and maximum range
+    //  It will repeatedly prompt the user until valid input is provided.
+    
+    int input; 
+    bool isValid; 
+
+    do
     {
-        Console.WriteLine("Too loo, try again!"); 
-        Console.WriteLine($"Guess left: {totalGuess - currentGuess}");  
+        Console.Write(prompt); 
+        isValid = int.TryParse(Console.ReadLine(), out input); 
+
+        if (!isValid)
+        {
+            Console.WriteLine("Invalid input. Please enter a number."); 
+        }
+        else if (input < min || input > max) 
+        {
+            Console.WriteLine($"Number must be between {min} and {max}"); 
+            isValid = false; 
+        }
+
+    } while(!isValid);
+
+    return input; 
+}
+
+Console.WriteLine("= GUESS THE NUMBER =");
+Console.WriteLine("Guess a number (1-10). You get 4 tries. Good luck!");    
+Console.WriteLine("Find the secret number!");
+
+string continuePlaying = "y"; 
+
+do
+{
+    int numberToGuess = new Random().Next(1, 11);
+
+    int maxAttempts = 4; 
+    int attemptsMade = 1;  
+
+ 
+    int userGuess = GetValidatedIntegerInput($"Attemp ({attemptsMade}/{maxAttempts}): ", 1, 10); 
+
+    while (attemptsMade <= maxAttempts && userGuess != numberToGuess)
+    {
+        if (userGuess < numberToGuess)
+        {
+            Console.WriteLine("Too low"); 
+        }
+        else if (userGuess > numberToGuess)
+        {
+        Console.WriteLine("Too high"); 
+        }
+        else
+        {
+            break;  
+        }
+        attemptsMade++;
+        if (attemptsMade > maxAttempts) break; 
+        userGuess = GetValidatedIntegerInput($"Attemp ({attemptsMade}/{maxAttempts}): ", 1, 10);  
     }
-    else if (userGuess > numberToGuess)
+
+    if (attemptsMade > maxAttempts && userGuess != numberToGuess)
     {
-        Console.WriteLine("Too high, try again!"); 
-        Console.WriteLine($"Guess left: {totalGuess - currentGuess}");
+        Console.WriteLine("GAME OVER! Out of attempts.");
+        Console.WriteLine($"The number was: {numberToGuess}");
     }
     else
     {
-        break;  
+        Console.WriteLine("YOU WON! Correct guess!"); 
+        Console.WriteLine($"Attempts: {attemptsMade}");
     }
-    Console.Write("Enter your guess again: ");
-    userGuess = Convert.ToInt32(Console.ReadLine()); 
-}
 
-if (currentGuess > totalGuess && userGuess != numberToGuess)
-{
-    Console.WriteLine("Game over! You've used all your guesses.");
-    Console.WriteLine($"The correct number was: {numberToGuess}");
-}
-else
-{
-    Console.WriteLine("You won! You guessed correct!"); 
-    Console.WriteLine($"Took guesses: {++currentGuess}");
-}
+    Console.WriteLine("Do you want to play again: (y/n)"); 
+    continuePlaying = Console.ReadLine() ?? ""; 
+}while(continuePlaying == "y"); 
