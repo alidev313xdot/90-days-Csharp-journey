@@ -22,7 +22,7 @@
 ## 🎯 Projects Built
 
 ### Week 1: Foundation Building
-
+---
 #### Day 0: Calculator App ✅
 **What I Built:**  
 A fully functional calculator with continuous operation support and input validation.
@@ -64,6 +64,25 @@ An interactive guessing game with attempt tracking and smart input validation.
 - 🔄 Play again functionality
 - 📊 Attempt counter and win/loss tracking
 
+---
+
+#### Day 2: Todo List App ✅
+**What I Built:**  
+Full CRUD todo application with completion tracking
+
+**What I Learned:**
+- Working with `List<T>` collections
+- Parallel data structures (maintaining sync between two Lists)
+- CRUD operations (Create, Read, Update, Delete)
+- Debugging data structure relationships
+- Switch statements for menu handling
+
+**Key Achievement:**
+Discovered and solved index mismatch bug by switching from array to parallel Lists
+
+**Code:** [Day2-TodoList](./week1-foundations/day2-TodoList/program.cs)
+
+---
 **Technical Highlights:**
 ```csharp
 // Reusable validation function
