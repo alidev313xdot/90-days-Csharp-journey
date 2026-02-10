@@ -64,7 +64,6 @@ An interactive guessing game with attempt tracking and smart input validation.
 - 🔄 Play again functionality
 - 📊 Attempt counter and win/loss tracking
 
----
 **Technical Highlights:**
 ```csharp
 // Reusable validation function
