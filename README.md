@@ -65,6 +65,19 @@ An interactive guessing game with attempt tracking and smart input validation.
 - 📊 Attempt counter and win/loss tracking
 
 ---
+**Technical Highlights:**
+```csharp
+// Reusable validation function
+int GetValidatedIntegerInput(string prompt, int min, int max)
+{
+    // Ensures input is valid integer within range
+    // Handles non-numeric input and out-of-range values
+}
+```
+
+**Code:** [Day1-GuessingGame](./week1-foundations/day1-GuessingGame/Program.cs/)
+
+---
 
 #### Day 2: Todo List App ✅
 **What I Built:**  
@@ -81,20 +94,6 @@ Full CRUD todo application with completion tracking
 Discovered and solved index mismatch bug by switching from array to parallel Lists
 
 **Code:** [Day2-TodoList](./week1-foundations/day2-TodoList/program.cs)
-
----
-**Technical Highlights:**
-```csharp
-// Reusable validation function
-int GetValidatedIntegerInput(string prompt, int min, int max)
-{
-    // Ensures input is valid integer within range
-    // Handles non-numeric input and out-of-range values
-}
-```
-
-**Code:** [Day1-GuessingGame](./week1-foundations/day1-GuessingGame/Program.cs/)
-
 ---
 
 ## 💡 Core Concepts Mastered
