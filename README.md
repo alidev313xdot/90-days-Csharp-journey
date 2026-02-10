@@ -133,7 +133,7 @@ Discovered and solved index mismatch bug by switching from array to parallel Lis
 ## 📈 What's Next
 
 ### Upcoming Projects (Week 1)
-- [ ] **Day 2-3:** Todo List Console App
+- [x] **Day 2-3:** Todo List Console App
   - Learn: Collections (Lists), CRUD operations
   
 - [ ] **Day 4-5:** Todo List with Classes (OOP)
